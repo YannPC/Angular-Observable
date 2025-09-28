@@ -1,2 +1,0 @@
-# Angular-Observable
-Learning Observable 
