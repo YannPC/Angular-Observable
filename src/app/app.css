@@ -1,7 +1,4 @@
 
-h2, button{
-    margin: 10px 0px;
-}
 
 .container{
     padding: 60px 200px;
@@ -26,4 +23,12 @@ button{
     &:hover{
         cursor: pointer;
     }
+}
+
+.title{
+    background-color: #efefef;
+    padding: 0px 20px;
+    margin: 10px 0px;
+    border-radius: 0%;
+
 }
