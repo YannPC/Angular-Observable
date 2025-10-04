@@ -20,6 +20,7 @@ myObsersable = new Observable((observer) => {
   setTimeout(() => observer.next('Vue'), 3000);
   setTimeout(() => observer.next('NodeJs'), 4000);
   setTimeout(() => observer.complete(), 5000);
+  
 
   
 })
