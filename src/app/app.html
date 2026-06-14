@@ -1,8 +1,12 @@
+<div class="container-button">
+  <button (click)="GetAsynData()">Get Data</button>
+  <button (click)="StopAsyncData()">Stop Data</button>
+  <button (click)="ResetData()">Get Sync Data</button>
+</div>
 <div class="container">
   <h2>Obsersable in Angular</h2>
 
-  <div class ="data-list" *ngFor="let item of data">
-    {{item}}
+  <div class="data-list" *ngFor="let item of data">
+    {{ item }}
   </div>
-  <button (click)="GetAsynData()">Get Data</button>
 </div>
