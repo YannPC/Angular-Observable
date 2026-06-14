@@ -14,6 +14,7 @@ export class App {
 
   subscription: Subscription | null = null;
 
+  loading = true;
   //Observable
   myObsersable = new Observable((observer) => {
     // this data will be emitted after 1 second
@@ -24,6 +25,7 @@ export class App {
     setTimeout(() => observer.complete(), 5000);
   });
   GetAsynData() {
+    this.loading = false;
     //Observer
     //next, error, complete
     this.subscription = this.myObsersable.subscribe((value: any) => {
@@ -35,13 +37,15 @@ export class App {
   }
 
   StopAsyncData() {
+    this.loading = true;
     if (this.subscription) {
       this.subscription.unsubscribe();
       this.subscription = null;
     }
   }
 
-  ResetData() {
+  RefreshData() {
+    this.loading = true;
     this.data = [];
   }
 }
