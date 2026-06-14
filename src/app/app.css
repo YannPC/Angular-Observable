@@ -3,6 +3,12 @@ button {
   margin: 10px 0px;
 }
 
+h2 {
+  color: #efefef;
+}
+p {
+  color: #ee3915;
+}
 .container {
   padding: 60px 200px;
   font-family: 'Lucida Sans';
@@ -16,21 +22,6 @@ button {
   font-weight: bold;
   background-color: #efefef;
 }
-
-/* button {
-  display: flex;
-
-  justify-content: space-between;
-
-  padding: 15px 30px;
-  font-weight: bold;
-  border: none;
-  background-color: #ee3915;
-  color: white;
-  &:hover {
-    cursor: pointer;
-  }
-} */
 
 .container-button {
   display: flex;
