@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-
+import { Component, inject } from '@angular/core';
+import { DataProviderService } from '../services/data-provider-service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
@@ -10,42 +9,34 @@ import { Observable, Subscription } from 'rxjs';
 export class App {
   title = 'Angular-Observable';
 
+  private dataProviderService = inject(DataProviderService);
   data: any[] = [];
 
-  subscription: Subscription | null = null;
+  // subscription: Subscription | null = null;
 
   loading = true;
-  //Observable
-  myObsersable = new Observable((observer) => {
-    // this data will be emitted after 1 second
-    setTimeout(() => observer.next('Angular'), 1000);
-    setTimeout(() => observer.next('React'), 2000);
-    setTimeout(() => observer.next('Vue'), 3000);
-    setTimeout(() => observer.next('NodeJs'), 4000);
-    setTimeout(() => observer.complete(), 5000);
-  });
-  GetAsynData() {
+  // //Observable
+  // myObsersable = new Observable((observer) => {
+  //   // this data will be emitted after 1 second
+  //   setTimeout(() => observer.next('Angular'), 1000);
+  //   setTimeout(() => observer.next('React'), 2000);
+  //   setTimeout(() => observer.next('Vue'), 3000);
+  //   setTimeout(() => observer.next('NodeJs'), 4000);
+  //   setTimeout(() => observer.complete(), 5000);
+  // });
+  GetData() {
     this.loading = false;
-    //Observer
-    //next, error, complete
-    this.subscription = this.myObsersable.subscribe((value: any) => {
-      // this.myObsersable.subcrible is the observer and ((value:any)=>{}) is the Handler function
-      // value just provided by observable that the observer is subscribed to
-      // any because we have data have any as data type
-      this.data.push(value);
-    });
+    this.dataProviderService.getObersableData();
+    this.data = this.dataProviderService.data;
   }
 
-  StopAsyncData() {
+  StopData() {
     this.loading = true;
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      this.subscription = null;
-    }
+    this.dataProviderService.stopObsersableData();
   }
 
   RefreshData() {
     this.loading = true;
-    this.data = [];
+    this.dataProviderService.refreshObsersableData();
   }
 }
