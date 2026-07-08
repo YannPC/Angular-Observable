@@ -28,5 +28,6 @@ export class App {
   RefreshData() {
     this.loading = true;
     this.dataProviderService.refreshObsersableData();
+    this.data = this.dataProviderService.data;
   }
 }
