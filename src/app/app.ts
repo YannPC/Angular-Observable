@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DataProviderService } from '../services/data-provider-service';
+import { ObersableData } from '../obersable-data/obersable-data';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
