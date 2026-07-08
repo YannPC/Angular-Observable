@@ -1,16 +1,25 @@
-import { Component, inject, signal } from '@angular/core';
-import { DataProviderService } from '../services/data-provider-service';
+import { Component, Inject, inject, signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 @Component({
   selector: 'app-obersable-data',
-  imports: [],
   templateUrl: './obersable-data.html',
   styleUrl: './obersable-data.css',
+  standalone: true,
 })
 export class ObersableData {
-  private dataProviderService = inject(DataProviderService);
+  private dialog = inject(MatDialog);
 
-  protected readonly comments = signal<string>(
-    'Angular is a platform for building mobile and desktop web applications.',
-  );
+  data = signal<DialogData>({ animal: 'panda' });
+
+  openDialog() {
+    this.dialog.open(ObersableData, {
+      data: {
+        animal: 'panda',
+      },
+    });
+  }
 }
