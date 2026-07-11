@@ -1,5 +1,6 @@
 import { Component, Inject, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogDataExampleDialog } from './Modal/dialog-data-example';
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -13,10 +14,8 @@ export interface DialogData {
 export class ObersableData {
   private dialog = inject(MatDialog);
 
-  data = signal<DialogData>({ animal: 'panda' });
-
   openDialog() {
-    this.dialog.open(ObersableData, {
+    this.dialog.open(DialogDataExampleDialog, {
       data: {
         animal: 'panda',
       },
