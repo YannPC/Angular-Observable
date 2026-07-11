@@ -1,0 +1,124 @@
+<h1 mat-dialog-title>Mastering Observables in Reactive Programming</h1>
+<div mat-dialog-content>
+  Mastering Observables
+  <p>
+    An <strong>Observable</strong> is a blueprint for creating data streams. It is a core primitive
+    in reactive programming that delivers multiple values over time asynchronously to a consumer
+    (Observer).
+  </p>
+
+  <h2>1. Core Architecture</h2>
+  <p>The observable pattern relies on four pillars to manage asynchronous data flows:</p>
+  <ul>
+    <li><strong>Observable:</strong> The data producer that emits values over time.</li>
+    <li>
+      <strong>Observer:</strong> The consumer containing callback handlers for data stream events.
+    </li>
+    <li>
+      <strong>Subscription:</strong> The execution contract that triggers the observable to start
+      emitting data.
+    </li>
+    <li>
+      <strong>Operators:</strong> Functional methods used to transform, filter, and combine data
+      streams.
+    </li>
+  </ul>
+
+  <h2>2. The Observer Interface</h2>
+  <p>An Observer objects listens to the stream using three specific callback methods:</p>
+  <ul>
+    <li><strong>next():</strong> Processes each new value emitted by the stream.</li>
+    <li><strong>error():</strong> Catches exceptions and halts stream execution immediately.</li>
+    <li><strong>complete():</strong> Signals successful execution and terminates the stream.</li>
+  </ul>
+
+  <h2>3. Observables vs. Promises</h2>
+  <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%">
+    <thead>
+      <tr style="background-color: #f2f2f2">
+        <th>Feature</th>
+        <th>Promises</th>
+        <th>Observables</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Emission</strong></td>
+        <td>Single value only.</td>
+        <td>Multiple values over time (0 to infinity).</td>
+      </tr>
+      <tr>
+        <td><strong>Evaluation</strong></td>
+        <td>Eager (starts immediately).</td>
+        <td>Lazy (starts only upon subscription).</td>
+      </tr>
+      <tr>
+        <td><strong>Cancellation</strong></td>
+        <td>Non-cancelable natively.</td>
+        <td>Cancelable via <code>unsubscribe()</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>Data Stream</strong></td>
+        <td>Unicast to a single resolver.</td>
+        <td>Can be Unicast (Cold) or Multicast (Hot).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Execution Types: Hot vs. Cold</h2>
+  <p>Observables behave differently based on how they produce and share data:</p>
+  <ul>
+    <li>
+      <strong>Cold Observables:</strong> Independent data sources. The producer is created
+      <em>inside</em> the observable. Each subscriber gets its own separate execution path (e.g.,
+      standard HTTP requests).
+    </li>
+    <li>
+      <strong>Hot Observables:</strong> Shared data sources. The producer exists
+      <em>outside</em> the observable. Subscribers share the same execution and receive data
+      mid-stream (e.g., live mouse clicks or WebSockets).
+    </li>
+  </ul>
+
+  <h2>5. Basic Code Example (RxJS JavaScript)</h2>
+  <p>
+    Below is a practical implementation of creating, subscribing to, and destroying an observable
+    stream:
+  </p>
+
+  <div
+    ngNonBindable
+    style="background-color: #f4f4f4; padding: 15px; border-radius: 5px; font-family: monospace"
+  >
+    // 1. Define the Observable stream const customObservable = new Observable((subscriber) =&gt;
+    &#123; subscriber.next('First Value'); subscriber.next('Second Value'); // Asynchronous emission
+    const id = setTimeout(() =&gt; subscriber.next('Third Value'), 1000); // Clean up resources on
+    unsubscribe return () =&gt; clearTimeout(id); &#125;); // 2. Define the Observer const observer
+    = &#123; next: (val) =&gt; console.log('Received:', val), error: (err) =&gt;
+    console.error('Error:', err), complete: () =&gt; console.log('Stream Complete!') &#125;; // 3.
+    Activate via Subscription const subscription = customObservable.subscribe(observer); // 4.
+    Cancel stream early if needed // subscription.unsubscribe();
+  </div>
+
+  <h2>6. Essential Stream Operators</h2>
+  <p>Operators allow you to pipe and manipulate emissions before they hit your final logic:</p>
+  <ul>
+    <li><strong>map:</strong> Transforms values inside the stream (e.g., doubling numbers).</li>
+    <li><strong>filter:</strong> Drops values that fail a specific test condition.</li>
+    <li>
+      <strong>switchMap:</strong> Cancels current inner subscriptions to switch to a new
+      asynchronous action.
+    </li>
+    <li>
+      <strong>catchError:</strong> Intercepts exceptions in the stream to gracefully provide
+      fallback options.
+    </li>
+  </ul>
+
+  <h2>7. Conclusion</h2>
+  <p>
+    Mastering observables is crucial for building responsive, efficient, and maintainable
+    applications. By understanding their architecture, execution types, and operators, developers
+    can harness the full power of reactive programming to handle complex asynchronous workflows.
+  </p>
+</div>

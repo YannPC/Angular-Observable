@@ -1,0 +1,17 @@
+.observable-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.observable-modal-text {
+  color: white;
+  font-size: 30px;
+}
+
+.observable-modal-button {
+  background-color: #ee3915;
+  color: white;
+  font-size: 30px;
+}
