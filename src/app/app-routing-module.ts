@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
-import { ObersableModalData } from '../obersable-data/obersable-modal-data';
+import { ObersableModalData } from '../obersable-modal-data/obersable-modal-data';
 
 import { ObservablePage } from '../page/observable-page';
 

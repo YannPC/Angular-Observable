@@ -1,0 +1,33 @@
+h2 {
+  margin: 10px 0px;
+}
+button {
+  margin: 10px 0px;
+  font-size: 25px;
+}
+
+h2 {
+  color: #efefef;
+}
+p {
+  color: #ee3915;
+}
+.container {
+  padding: 60px 200px;
+  font-family: 'Lucida Sans';
+}
+
+.data-list {
+  padding: 15px 50px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #efefef;
+}
+
+.container-button {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #ee3915;
+}
