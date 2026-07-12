@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { ObersableModalData } from '../obersable-data/obersable-modal-data';
+import { ObersableModalData } from '../obersable-modal-data/obersable-modal-data';
 import { ObservablePage } from '../page/observable-page';
 import { RouterOutlet } from '@angular/router';
 
