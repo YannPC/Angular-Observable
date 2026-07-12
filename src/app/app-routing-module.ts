@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
-import { ObersableData } from '../obersable-data/obersable-data';
+import { ObersableModalData } from '../obersable-data/obersable-modal-data';
 
-import { Observable } from 'rxjs';
 import { ObservablePage } from '../page/observable-page';
 
 const routes: Routes = [
@@ -13,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ObersableData, ObservablePage, RouterOutlet],
+  imports: [RouterModule.forRoot(routes), ObersableModalData, ObservablePage, RouterOutlet],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

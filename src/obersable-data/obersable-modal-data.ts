@@ -7,12 +7,12 @@ import { ModalData } from '../modal-components/modal-data';
 // }
 
 @Component({
-  selector: 'app-obersable-data',
-  templateUrl: './obersable-data.html',
-  styleUrl: './obersable-data.css',
+  selector: 'app-obersable-modal-data',
+  templateUrl: './obersable-modal-data.html',
+  styleUrl: './obersable-modal-data.css',
   standalone: true,
 })
-export class ObersableData {
+export class ObersableModalData {
   private dialog = inject(MatDialog);
 
   openDialog() {
