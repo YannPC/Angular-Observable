@@ -6,6 +6,11 @@ import { ObservablePage } from '../page/observable-page';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('../obersable-main-page/obsersable-main-page.route').then((m) => m.routes),
+  },
+  {
     path: 'observable-page',
     loadChildren: () => import('../page/obsersable-page-route').then((m) => m.routes),
   },
