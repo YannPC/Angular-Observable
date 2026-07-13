@@ -6,28 +6,4 @@ import { DataProviderService } from '../services/data-provider-service';
   standalone: false,
   styleUrl: './app.css',
 })
-export class App {
-  title = 'Angular-Observable';
-
-  private dataProviderService = inject(DataProviderService);
-
-  data: any[] = [];
-
-  loading = true;
-  GetData() {
-    this.loading = false;
-    this.dataProviderService.getObersableData();
-    this.data = this.dataProviderService.data;
-  }
-
-  StopData() {
-    this.loading = true;
-    this.dataProviderService.stopObsersableData();
-  }
-
-  RefreshData() {
-    this.loading = true;
-    this.dataProviderService.refreshObsersableData();
-    this.data = this.dataProviderService.data;
-  }
-}
+export class App {}
